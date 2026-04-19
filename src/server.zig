@@ -9,11 +9,11 @@ pub const Server = struct {
     addr: std.Io.net.IpAddress,
     io: std.Io,
 
-    pub fn init(io: std.Io) !Server {
-        const host: []const u8 = "127.0.0.1";
-        const port = 4000;
-        const addr = try std.Io.net.IpAddress.parseIp4(host, port);
+    pub fn init(io: std.Io, _ip: []const u8, _port: u16) !Server {
+        const host: []const u8 = _ip;
+        const port: u16 = _port;
 
+        const addr = try std.Io.net.IpAddress.parseIp4(host, port);
         return .{ .host = host, .port = port, .addr = addr, .io = io };
     }
 
