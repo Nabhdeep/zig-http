@@ -6,6 +6,10 @@ const Method = @import("method.zig");
 const posix = std.posix;
 const os = std.os;
 
+//TODO STILL has error  where if server is killed port is still in use.
+// 1. checked killing process
+// 2. cheked closing connection, deinit server.
+//
 var keepRunning: bool = true;
 
 fn handleSignal(sig: os.linux.SIG) callconv(.c) void {
